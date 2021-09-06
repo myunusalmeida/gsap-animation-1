@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Menu Full Screen | Almeida Space Portfolio</title>
+    <link rel="stylesheet" href="styles/styles.css">
+    <link href='https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css' rel='stylesheet'>
+
+</head>
+
+<body>
+
+    <nav class="nav">
+        <a href="#" class="logo">Almeida<span>Space</span></a>
+        <ul class="menus">
+            <li class="menu-item">
+                <a href="#" class="menu-link">Features</a>
+            </li>
+            <li class="menu-item">
+                <a href="#" class="menu-link">Solutions</a>
+            </li>
+            <li class="menu-item">
+                <a href="#" class="menu-link">Resources</a>
+            </li>
+            <li class="menu-item">
+                <a href="#" class="menu-link">Pricing</a>
+            </li>
+        </ul>
+        <button class="btn">Try for free</button>
+    </nav>
+
+    <section>
+        <h2>Get help with coding from engineers.</h2>
+        <p>
+            Learn how to code efficiently and create apps and games that work. Consult with best experts to apply skills
+            in action.
+        </p>
+        <button class="btn">Learn more</button>
+    </section>
+
+    <div class="overlay">
+        <div class="left stagger">
+            <h3>Let's get started with your <span>14 days free trial</span></h3>
+
+            <form autocomplete="off">
+                <input type="text" class="input" placeholder="Your Name">
+                <input type="email" class="input" placeholder="Your Email">
+                <input type="password" class="input" placeholder="Choose Password">
+                <button class="btn">get started</button>
+            </form>
+        </div>
+        <div class="middle stagger">
+            <span class="icon-quote"><i class="bx bxs-quote-alt-left"></i></span>
+            <p class="quote">
+                "I'm a software engineer at company A, thanks to the AlmeidaSpace platform, it helps me a lot to solve
+                various problems in my company"
+            </p>
+            <div class="profiles">
+                <img src="user.png" alt="user">
+                <div class="profile-name">
+                    <p>Yunus almeida</p>
+                    <span>Software engineer</span>
+                </div>
+            </div>
+        </div>
+        <div class="right stagger">
+            <span class="close"><i class="bx bx-x"></i></span>
+        </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.7.1/gsap.min.js"></script>
+    <script>
+        let open = document.querySelector('.btn');
+        let close = document.querySelector('.close');
+        let tl = gsap.timeline();
+
+        tl.to('.overlay', {
+            opacity: 1,
+            x: 0,
+            scale: 1,
+            pointerEvents: 'auto',
+            duration: .3
+        });
+        tl.to('.stagger', {
+                opacity: 1,
+                x: 0,
+                stagger: .6
+            },
+            "-=.6");
+        tl.pause();
+
+        open.addEventListener('click', () => {
+            tl.play();
+        });
+
+        close.addEventListener('click', () => {
+            tl.reverse();
+        });
+    </script>
+</body>
+
+</html>
